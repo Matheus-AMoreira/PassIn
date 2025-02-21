@@ -1,7 +1,9 @@
 package matheus.com.pass_in.dto;
 
+import lombok.Getter;
 import matheus.com.pass_in.domain.event.Event;
 
+@Getter
 public class EventResponseDTO {
 
     EventDetailDTO event;

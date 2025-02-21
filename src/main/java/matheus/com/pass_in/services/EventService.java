@@ -3,10 +3,10 @@ package matheus.com.pass_in.services;
 import lombok.RequiredArgsConstructor;
 import matheus.com.pass_in.domain.attendee.Attendee;
 import matheus.com.pass_in.domain.event.Event;
+import matheus.com.pass_in.domain.event.exceptions.EventNotFoundException;
 import matheus.com.pass_in.dto.EventIdDTO;
 import matheus.com.pass_in.dto.EventRequestDTO;
 import matheus.com.pass_in.dto.EventResponseDTO;
-import matheus.com.pass_in.repositories.AttendeeRepository;
 import matheus.com.pass_in.repositories.EventRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,13 +18,13 @@ import java.util.List;
 public class EventService {
 
     private final EventRepository eventRepository;
-    private final AttendeeRepository attendeeRepository;
+    private final AttendeeService attendeeService;
 
     public EventResponseDTO getEventDetail(String eventId){
-        List<Attendee> attendeeList = this.attendeeRepository.findByEventId(eventId);
+        List<Attendee> attendeeList = this.attendeeService.getAllAttendeesFromEvent(eventId);
         return new EventResponseDTO(eventRepository.findById(eventId)
                 .orElseThrow(() ->
-                        new RuntimeException("Event not found with id:" + eventId)
+                        new EventNotFoundException("Event not found with id:" + eventId)
                 ), attendeeList.size());
     }
 
