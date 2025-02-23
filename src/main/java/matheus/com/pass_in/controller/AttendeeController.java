@@ -24,7 +24,7 @@ public class AttendeeController {
     public ResponseEntity registerCheckIn(@PathVariable String attendeeId,UriComponentsBuilder uriComponentsBuilder){
         this.attendeeService.checkInAttendee(attendeeId);
 
-        var uri = uriComponentsBuilder.path("/attendees/{attendeeId/badge}").buildAndExpand(attendeeId).toUri();
+        var uri = uriComponentsBuilder.path("/attendees/{attendeeId}/badge").buildAndExpand(attendeeId).toUri();
 
         return ResponseEntity.created(uri).build();
     }

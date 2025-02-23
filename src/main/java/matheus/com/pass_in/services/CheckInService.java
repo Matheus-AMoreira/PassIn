@@ -16,6 +16,7 @@ public class CheckInService {
     private final CheckInRepository checkInRepository;
 
     public void registerCheckIn(Attendee attendee){
+        verifyCheckInExists(attendee.getId());
         CheckIn newCheckIn = new CheckIn();
         newCheckIn.setAttendee(attendee);
         newCheckIn.setCreateAt(LocalDateTime.now());
