@@ -1,11 +1,10 @@
 package matheus.com.pass_in.controller;
 
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import matheus.com.pass_in.dto.AttendeeListResponseDTO;
-import matheus.com.pass_in.dto.EventIdDTO;
-import matheus.com.pass_in.dto.EventRequestDTO;
-import matheus.com.pass_in.dto.EventResponseDTO;
+import matheus.com.pass_in.dto.attendee.AttendeeListResponseDTO;
+import matheus.com.pass_in.dto.event.EventIdDTO;
+import matheus.com.pass_in.dto.event.EventRequestDTO;
+import matheus.com.pass_in.dto.event.EventResponseDTO;
 import matheus.com.pass_in.services.AttendeeService;
 import matheus.com.pass_in.services.EventService;
 import org.springframework.http.ResponseEntity;

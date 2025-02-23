@@ -1,4 +1,4 @@
-package matheus.com.pass_in.dto;
+package matheus.com.pass_in.dto.attendee;
 
 import java.time.LocalDateTime;
 

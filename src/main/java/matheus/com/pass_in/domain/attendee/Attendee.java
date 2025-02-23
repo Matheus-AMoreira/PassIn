@@ -2,6 +2,7 @@ package matheus.com.pass_in.domain.attendee;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import matheus.com.pass_in.domain.event.Event;
 
 import java.time.LocalDateTime;
 
@@ -22,7 +23,7 @@ public class Attendee {
 
     @ManyToOne
     @JoinColumn(name = "event_id", nullable = false)
-    private Attendee event;
+    private Event event;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

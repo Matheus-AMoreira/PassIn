@@ -1,4 +1,4 @@
-package matheus.com.pass_in.dto;
+package matheus.com.pass_in.dto.event;
 
 import lombok.Getter;
 import matheus.com.pass_in.domain.event.Event;

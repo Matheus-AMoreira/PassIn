@@ -1,4 +1,4 @@
-package matheus.com.pass_in.dto;
+package matheus.com.pass_in.dto.event;
 
 public record EventDetailDTO(
         String id,
