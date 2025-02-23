@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import matheus.com.pass_in.dto.attendee.AttendeeBadgeResponseDTO;
 import matheus.com.pass_in.services.AttendeeService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
@@ -23,4 +20,12 @@ public class AttendeeController {
         return ResponseEntity.ok(response);
     }
 
+    @PostMapping("/{attendeeId}/check-in")
+    public ResponseEntity registerCheckIn(@PathVariable String attendeeId,UriComponentsBuilder uriComponentsBuilder){
+        this.attendeeService.checkInAttendee(attendeeId);
+
+        var uri = uriComponentsBuilder.path("/attendees/{attendeeId/badge}").buildAndExpand(attendeeId).toUri();
+
+        return ResponseEntity.created(uri).build();
+    }
 }

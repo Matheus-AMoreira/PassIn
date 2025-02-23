@@ -24,7 +24,7 @@ public class AttendeeService {
 
     private final AttendeeRepository attendeeRepository;
 
-    private final CheckInRepository checkinRepository;
+    private final CheckInService checkInService;
 
     public List<Attendee> getAllAttendeesFromEvent(String eventId){
         return this.attendeeRepository.findByEventId(eventId);
@@ -34,7 +34,7 @@ public class AttendeeService {
         List<Attendee> attendeeList = this.getAllAttendeesFromEvent(eventId);
 
         List<AttendeeDetails> attendeeDetailsList = attendeeList.stream().map(attendee -> {
-            Optional<CheckIn> checkIn = this.checkinRepository.findByAttendeeId(attendee.getId());
+            Optional<CheckIn> checkIn = this.checkInService.getCheckIn(attendee.getId());
             LocalDateTime checkedInAt = checkIn.map(CheckIn::getCreateAt).orElse(null);
 
             return new AttendeeDetails(attendee.getId(), attendee.getName(), attendee.getEmail(), attendee.getCreatedAt(), checkedInAt);
@@ -61,5 +61,16 @@ public class AttendeeService {
 
         AttendeeBadgeDTO badgeDTO = new AttendeeBadgeDTO(attendee.getName(), attendee.getEmail(), uri, attendee.getEvent().getId());
         return new AttendeeBadgeResponseDTO(badgeDTO);
+    }
+
+    private Attendee getAttendee(String attendeeId){
+        return this.attendeeRepository.findById(attendeeId)
+                .orElseThrow(() -> new AttendeeNotFoundException("Attendee not found with id" + attendeeId));
+
+    }
+
+    public void checkInAttendee(String attendeeId){
+        Attendee attendee = this.getAttendee(attendeeId);
+        this.checkInService.registerCheckIn(attendee);
     }
 }
