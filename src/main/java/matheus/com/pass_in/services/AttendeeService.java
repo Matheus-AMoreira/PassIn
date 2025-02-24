@@ -29,7 +29,7 @@ public class AttendeeService {
         return this.attendeeRepository.findByEventId(eventId);
     }
 
-    public AttendeeListResponseDTO getEventsAttendee(String eventId){
+    public AttendeeListResponseDTO getEventsAttendees(String eventId){
         List<Attendee> attendeeList = this.getAllAttendeesFromEvent(eventId);
 
         List<AttendeeDetails> attendeeDetailsList = attendeeList.stream().map(attendee -> {
