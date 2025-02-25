@@ -8,9 +8,9 @@ Após abaixar o arquivo deverá ser adicionado no arquivo [application.propertie
 
 ## 🧑‍⚖️ Regras
 
-Cada Usuário só poderá se inscrever uma vez em cada evento sendo o email de uso uníco
-Cada cadastro do Usuário em um evento terá seu próprio ID
-Cada Evento terá um título uníco
+- Cada Usuário só poderá se inscrever uma vez em cada evento sendo o email de uso uníco
+- Cada cadastro do Usuário em um evento terá seu próprio ID
+- Cada Evento terá um título uníco
 
 ## 🧾️ Modelo de entidade relacional
 
