@@ -15,7 +15,7 @@ Cada Evento terá um título uníco
 ## 🧾️ Modelo de entidade relacional
 
 <p>
-  <img src="./github/erd/diagram.png" ALT="Diagrama de Entidade e Relacionamento">
+  <img src="./github/ERD.png" ALT="Diagrama de Entidade e Relacionamento">
 </p>
 
 ## 🚪 EndPoints da aplicação
@@ -23,20 +23,20 @@ Cada Evento terá um título uníco
 Eventos(Events):
 
 Metodos Get:
-/events/{eventId} -> Permite vereficar os dados do Evento
-/events/attendees/{eventId} -> Fornece uma lista dos Participantes do Evento
+- /events/{eventId} -> Permite vereficar os dados do Evento
+- /events/attendees/{eventId} -> Fornece uma lista dos Participantes do Evento
 
 Metodos Post:
-/events -> Permite criar um Evento
-/events/{eventId}/attendees -> Registra um Participante no Evento
+- /events -> Permite criar um Evento
+- /events/{eventId}/attendees -> Registra um Participante no Evento
 
 Participantes(Attendee):
 
 Metodos Get:
-/attendees/{attendeeId}/badge -> Fornece o estado da inscrição Participante através do seu id de inscrição em um Evento
+- /attendees/{attendeeId}/badge -> Fornece o estado da inscrição Participante através do seu id de inscrição em um Evento
 
 Metodos Post:
-/{attendeeId}/check-in -> Marca o comparecimento do Participante no evento que ele se inscreveu através do id de inscrição
+- /{attendeeId}/check-in -> Marca o comparecimento do Participante no evento que ele se inscreveu através do id de inscrição
 
 ## 🔧 Tecnologias
 
